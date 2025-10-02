@@ -405,8 +405,8 @@ export default function Chatbot() {
         </button>
       )}
 
-      <div 
-        className={`fixed bottom-6 right-6 w-96 max-h-[90vh] bg-[var(--card)] text-[var(--foreground)] rounded-xl shadow-2xl z-50 flex flex-col border border-[var(--border)] transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+<div 
+        className={`fixed bottom-6 right-6 w-96 max-h-[90vh] bg-card text-foreground rounded-xl shadow-2xl z-50 flex flex-col border border-border transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
         style={{ height: isOpen ? 'min(85vh, 500px)' : '0', visibility: isOpen ? 'visible' : 'hidden' }}
       >
         <div className="flex-shrink-0 p-4 pb-3">
@@ -417,7 +417,7 @@ export default function Chatbot() {
               </div>
               <div>
                 <div className="text-base font-semibold">Camwood Chatbot</div>
-                <div className="flex items-center gap-1 text-xs text-[var(--muted-foreground)]">
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   Online
                 </div>
@@ -425,7 +425,7 @@ export default function Chatbot() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="h-8 w-8 p-0 flex items-center justify-center rounded-full text-[var(--foreground)] hover:bg-[var(--muted)] transition"
+              className="h-8 w-8 p-0 flex items-center justify-center rounded-full text-foreground hover:bg-muted transition"
               aria-label="Close Chatbot"
             >
               <X className="h-4 w-4" />
@@ -433,7 +433,7 @@ export default function Chatbot() {
           </div>
         </div>
 
-        <div className="w-full h-px bg-[var(--border)]"></div>
+        <div className="w-full h-px bg-border"></div>
 
         <div className="flex-1 flex flex-col p-0 overflow-hidden">
           <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
@@ -449,7 +449,7 @@ export default function Chatbot() {
                 >
                   <div className="flex items-start gap-2 mb-1">
                     {message.isBot ? (
-                      <Bot className={`h-4 w-4 mt-0.5 flex-shrink-0 ${message.text.startsWith('(✨') ? 'text-yellow-400' : 'text-[var(--primary)]'}`} />
+                      <Bot className={`h-4 w-4 mt-0.5 flex-shrink-0 ${message.text.startsWith('(✨') ? 'text-yellow-400' : 'text-primary'}`} />
                     ) : (
                       <User className="h-4 w-4 mt-0.5 flex-shrink-0" />
                     )}
@@ -465,13 +465,13 @@ export default function Chatbot() {
                   )}
 
                   {message.isEscalation && (
-                    <div className="flex items-center gap-1 mt-2 text-xs font-medium text-[var(--destructive)]/80">
+                    <div className="flex items-center gap-1 mt-2 text-xs font-medium text-destructive/80">
                       <HelpCircle className="h-3 w-3" />
                       Hand-off Suggested for Specialist Topic
                     </div>
                   )}
 
-                  <div className={`mt-1 text-right text-xs ${message.isBot ? 'text-[var(--secondary-foreground)]/70' : 'text-[var(--primary-foreground)]/70'}`}>
+                  <div className={`mt-1 text-right text-xs ${message.isBot ? 'text-secondary-foreground/70' : 'text-primary-foreground/70'}`}>
                     {formatTime(message.timestamp)}
                   </div>
 
@@ -483,8 +483,8 @@ export default function Chatbot() {
               <div className="flex justify-start">
                 <div className={`${SecondaryClasses} rounded-xl p-3 max-w-[80%] shadow-sm`}>
                   <div className="flex items-center gap-2">
-                    <Bot className="h-4 w-4 text-[var(--muted-foreground)]" />
-                    <div className="flex gap-1 text-[var(--muted-foreground)]">
+                    <Bot className="h-4 w-4 text-muted-foreground" />
+                    <div className="flex gap-1 text-muted-foreground">
                       <div className="w-2 h-2 bg-current rounded-full animate-bounce"></div>
                       <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
                       <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
@@ -499,13 +499,13 @@ export default function Chatbot() {
 
 
           {messages.length === 1 && (
-            <div className="p-4 border-t border-[var(--border)] flex-shrink-0">
-              <div className="text-xs text-[var(--muted-foreground)] mb-2">Try asking:</div>
+            <div className="p-4 border-t border-border flex-shrink-0">
+              <div className="text-xs text-muted-foreground mb-2">Try asking:</div>
               <div className="flex flex-wrap gap-2">
                 {suggestedQuestions.map((question, index) => (
                   <button
                     key={index}
-                    className="text-xs h-8 px-3 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] hover:bg-[var(--muted)] transition"
+                    className="text-xs h-8 px-3 rounded-lg border border-border bg-card text-foreground hover:bg-muted transition"
                     onClick={() => handleSuggestedQuestion(question)}
                   >
                     {question}
@@ -515,14 +515,14 @@ export default function Chatbot() {
             </div>
           )}
 
-          <div className="p-4 border-t border-[var(--border)] flex-shrink-0">
+          <div className="p-4 border-t border-border flex-shrink-0">
             <div className="flex gap-2">
               <input
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask me a question about decision intelligence or services..."
-                className="flex-1 p-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--ring)] bg-[var(--input-background)] text-[var(--foreground)] text-xs"
+                className="flex-1 p-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-input text-foreground text-xs"
                 disabled={isTyping} 
               />
               <button

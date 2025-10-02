@@ -3,16 +3,7 @@ import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import heroBgGif from "@/assets/images/hero_bg.gif"; 
 
-// ------------------------------------------
-// 1. Reusable Count Up Hook
-// ------------------------------------------
-/**
- * Hook to animate a number count up to a target value.
- * @param {number} end - The target number to count up to.
- * @param {number} duration - The duration of the animation in milliseconds.
- * @param {boolean} isCounting - Whether the animation should be active.
- * @returns {number} The current value of the count.
- */
+
 const useCountUp = (end, duration = 2000, isCounting) => {
   const [count, setCount] = useState(0);
   const startTimeRef = useRef(null);
@@ -49,31 +40,24 @@ const useCountUp = (end, duration = 2000, isCounting) => {
   return count;
 };
 
-// ------------------------------------------
-// 2. Component for Individual Stats
-// ------------------------------------------
 
-/**
- * Component to display a stat with a counting animation.
- * It uses the useCountUp hook.
- */
 function StatCounter({ target, label, suffix = "", decimalPoints = 0 }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
-  // Set up Intersection Observer to trigger animation when component is visible
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // Stop observing once visible
+          observer.unobserve(entry.target);
         }
       },
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5, // Trigger when 50% of the item is visible
+        threshold: 0.5,
       }
     );
 
@@ -91,24 +75,19 @@ function StatCounter({ target, label, suffix = "", decimalPoints = 0 }) {
   let displayValue;
   
   if (suffix === '%') {
-    // Handle the 98.4% case
     const intPart = Math.floor(target);
     const decimalPart = Math.round((target - intPart) * 10);
     const countValue = useCountUp(intPart * 10 + decimalPart, 2000, isVisible);
     
-    // Format back to string: X.X
     displayValue = (countValue / 10).toFixed(1);
     
   } else if (suffix === '+') {
-    // Handle 12+ case (simply count to 12)
     displayValue = useCountUp(target, 2000, isVisible);
     
   } else {
-    // Handle simple integers (72)
     displayValue = useCountUp(target, 2000, isVisible);
   }
 
-  // Handle the special case for 12+ where we show the plus sign at the end
   const finalDisplay = (suffix === '+' && isVisible) 
     ? (displayValue === target ? `${displayValue}+` : displayValue)
     : `${displayValue}${suffix}`;
@@ -141,7 +120,7 @@ export function Hero() {
             backgroundImage: `url('${heroBgGif}')`
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/80 to-background/75"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/75 via-background/80 to-background/60"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/10"></div>
       </div>
 
