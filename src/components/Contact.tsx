@@ -22,7 +22,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: "info@camwood.com",
+    details: "hello@camwoodinc.com",
     description: "We respond within one business day",
   },
   {

@@ -122,7 +122,7 @@ const knowledgeBase = {
           "id": "contact-info",
           "keywords": ["contact", "phone", "email", "address", "reach", "number"],
           "question": "How can I contact Camwood Inc.?",
-          "answer": "You can reach us via email at info@camwood.com, or call us at +1 (343) 630-0727. Engagements typically start with a strategy consultation to align goals."
+          "answer": "You can reach us via email at hello@camwoodinc.com, or call us at +1 (343) 630-0727. Engagements typically start with a strategy consultation to align goals."
         }
       ]
     }
@@ -356,7 +356,7 @@ export default function Chatbot() {
       setTimeout(() => {
         const followUp: Message = {
           id: (Date.now() + 2).toString(),
-          text: "Here are your options for connecting with our team:\n• Schedule a free strategy consultation\n• Call us at +1 (343) 630-0727\n• Email us at info@camwood.com\n\nOr feel free to ask me about our Decision Engines, industry focus, or philosophy!",
+          text: "Here are your options for connecting with our team:\n• Schedule a free strategy consultation\n• Call us at +1 (343) 630-0727\n• Email us at hello@camwoodinc.com\n\nOr feel free to ask me about our Decision Engines, industry focus, or philosophy!",
           isBot: true,
           timestamp: new Date(),
         };
@@ -401,7 +401,7 @@ export default function Chatbot() {
           className={`fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 ${PrimaryClasses} flex items-center justify-center`}
           aria-label="Open Chatbot"
         >
-          <MessageCircle className="h-6 w-6" />
+          <MessageCircle className="h-6 w-6 text-green-500" />
         </button>
       )}
 
@@ -466,7 +466,7 @@ export default function Chatbot() {
 
                   {message.isEscalation && (
                     <div className="flex items-center gap-1 mt-2 text-xs font-medium text-destructive/80">
-                      <HelpCircle className="h-3 w-3" />
+                      <HelpCircle className="h-3 w-3 bg-g" />
                       Hand-off Suggested for Specialist Topic
                     </div>
                   )}

@@ -45,7 +45,7 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:info@camwood.com"><span>info@camwood.com</span></a>
+                <a href="mailto:hello@camwoodinc.com"><span>hello@camwoodinc.com</span></a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
