@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github, ArrowUp } from "lucide-react"; // Import ArrowUp
 import { Separator } from "./ui/separator";
 import CamwoodLogo from "@/assets/images/camwoodlogo.svg?react"; 
 
@@ -24,6 +24,14 @@ const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Github, href: "#", label: "GitHub" }
 ];
+
+// Function to handle the scroll to top action
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // For a smooth scrolling effect
+  });
+};
 
 export function Footer() {
   return (
@@ -96,14 +104,24 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <div>
-            © 2025 Camwood Inc. All rights reserved.
-          </div>
-          <div className="flex gap-6">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 order-2 md:order-1">
             <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a>
           </div>
+          <div className="order-3 md:order-2">
+            © 2025 Camwood Inc. All rights reserved.
+          </div>
+          
+          {/* Back to Top Button */}
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1 text-sm font-medium hover:text-foreground transition-colors order-1 md:order-3"
+            aria-label="Back to top"
+          >
+            Back to Top
+            <ArrowUp className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </footer>

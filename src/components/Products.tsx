@@ -17,12 +17,9 @@ import {
   Brain,
   Shield,
   Clock,
-} from "lucide-react"; // Keep these icons for non-product uses (Star, Clock, Brain, etc.)
-
-// 1. Import your custom PNG image path
-// Assuming the PNG is located at "@/assets/images/autofix_icon.png"
-// We are importing the image URL as a string.
+} from "lucide-react";
 import AutofixIconPath from "@/assets/images/autofix_icon.png";
+import RhaidImg from "@/assets/images/rhaid_image.jpg";
 
 export function Products() {
   const featuredProduct = {
@@ -48,7 +45,6 @@ export function Products() {
       processing: "CI-Native",
     },
     status: "available",
-    // 2. Assign the PNG path string to the icon property
     icon: AutofixIconPath,
   };
 
@@ -76,12 +72,12 @@ export function Products() {
       icon: Shield,
     },
     {
-      id: "trade-advisor",
-      name: "Trade Advisor",
+      id: "rhaid-trade-advisor",
+      name: "Rhaid Trade Advisor",
       description:
         "AI-powered trading analysis tool that allows users to upload screenshots of trade candles and receive intelligent trading advice based on technical indicators and market patterns. Leverages advanced pattern recognition to provide actionable insights for informed trading decisions.",
       image:
-        "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBhbmFseXRpY3N8ZW58MXx8fHwxNzU4ODEzOTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        RhaidImg,
       releaseDate: "Q4 2025",
       status: "coming_soon",
       icon: BarChart3,
