@@ -73,7 +73,7 @@ export function Contact() {
         setIsLoading(true);
 
         // 💥 FIX: Access process.env INSIDE the handler function to prevent ReferenceError
-        const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+        const API_BASE_URL = "https://cam-back-new.vercel.app";
 
         if (!API_BASE_URL) {
             console.error("Configuration Error: NEXT_PUBLIC_API_BASE_URL is not set.");
