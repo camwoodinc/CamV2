@@ -106,10 +106,6 @@ function StatCounter({ target, label, suffix = "", decimalPoints = 0 }) {
 }
 
 
-// ------------------------------------------
-// 3. Updated Hero Component
-// ------------------------------------------
-
 export function Hero() {
   return (
     <section id="home" className="relative pt-16 min-h-screen flex items-center overflow-hidden bg-[var(--color-section-hero)] py-12 md:py-24">
@@ -120,7 +116,8 @@ export function Hero() {
             backgroundImage: `url('${heroBgGif}')`
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/75 via-background/80 to-background/60"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-background/75 via-background/80 to-background/60"></div> */}
+        <div className=""></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/10"></div>
       </div>
 

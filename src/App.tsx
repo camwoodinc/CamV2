@@ -9,6 +9,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Chatbot from "./components/Chatbot";
+import "./index.css";
 
 export default function App() {
   return (
